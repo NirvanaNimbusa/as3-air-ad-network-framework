@@ -4,12 +4,17 @@ as3-air-ad-network-framework
 adwhirl for actionscript ?yes ,it do as adwhirl,but more simple and not need server 
 with this lib, flash developer will been able to  add a variety of ad networks advertising in mobile applications  quickly and easily, 
 manage,switching and set rate of each advertising platform no more than 10 line actionscript  code
+
 Library comes with support for admob (  ios, android), inmobi (ios, android), chartboost (ios, android), iad (ios) 4 ad platforms now
+
 air Developers can choose any numbers of platform used in a mobile application, or write your own advertising platform plugin  extension
 
 Use
+
 1 download compiled platforms.swc or checkout the source, add to  flash to flex mobile project  project path
+
 2 Use the built-in support for the platform , download the corresponding platforms ane, and add it to flash  native extension library path. following admob and inmobi to use in an application as an example
+
 a. config ad platforms you would like to add in air application , AdItem(platform ,rate , appid, signKey,maxInterstitialShowChount) (admob  recommended no more than 5 )
 
 var list: Vector <AdItem> = new Vector <AdItem> ();
@@ -19,6 +24,7 @@ AdManager.getInstance () configPlatforms (list);
 
 b. show Interstitial ,  showInterstitialOrCache() will detects weather already loaded success, if loaded success will show it ,else  loaded automatically  ,wait for the next calling,If loading fails , it will automatically switch to the next platform to try to load.
 AdManager.getInstance().showInterstitialOrCache();
+
 c. display banner ads , banner ads can displayed by setting an absolute position , if advertising fails to load , it will automatically try the next  platform .
 AdManager.getInstance().showBannerAbsolute(AdSize.PHONE_PORTRAIT, x, y);
 
