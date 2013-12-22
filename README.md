@@ -1,9 +1,6 @@
 as3-air-ad-network-framework
 ============================
 
-as3-air-ad-network-framework
-============================
-
 adwhirl for actionscript ?yes ,it do as adwhirl,but more simple and not need server 
 with this lib, flash developer will been able to  add a variety of ad networks advertising in mobile applications  quickly and easily, 
 manage,switching and set rate of each advertising platform no more than 10 line actionscript  code
