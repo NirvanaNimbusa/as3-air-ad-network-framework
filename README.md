@@ -46,29 +46,45 @@ Supported Platforms Description:
 
 1.admob
 Download : http://code.google.com/p/flash-air-admob-ane-for-ios/
+
 Supported Platforms : ios, android
+
 Supported types of ads : Banner, Interstitial
+
 ExtensionID: so.cuo.platform.admob
+
 Other notes : android need to add the corresponding activity
+
 <activity android:name="com.google.ads.AdActivity"
 android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
 2.inmobi
 Download : http://code.google.com/p/inmobi-ad-flash-air-ane-ios-android/
+
 Supported Platforms : ios, android
+
 Supported types of ads : Banner, Interstitial
+
 ExtensionID: so.cuo.platform.inmobi
+
 Other notes : android need to add the corresponding activity
+
 <activity android:name="com.inmobi.androidsdk.IMBrowserActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:hardwareAccelerated="true" />
 
 3.chartboost
 Download : http://code.google.com/p/chartboost-sdk/
+
 Supported platforms : ios, android
+
 Support ad type : Interstitial, MorePage
+
 ExtensionID: so.cuo.platform.chartboost
 
 4.IAd
 Download : http://code.google.com/p/iad-ane-for-flash-air-mobile-ios/
+
 Supported Platforms : ios
+
 Support Ad Type : Banner, Interstitial
+
 ExtensionID: so.cuo.platform.iad
