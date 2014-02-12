@@ -20,6 +20,9 @@ package so.cuo.platform.ad
 		protected var autuCache:Boolean;
 		protected var bannerState:BannerState=new BannerState();
 		public var enableTrace:Boolean=true;
+		
+		protected var bannerFailTry:int=0;
+		protected var interstitialFailTry:int=0;
 
 		public static function getInstance():AdManager
 		{
@@ -98,6 +101,11 @@ package so.cuo.platform.ad
 
 		public function cacheInterstitial():void
 		{
+			this.interstitialFailTry=0;
+			this.docacheInterstitial();
+		}
+		public function docacheInterstitial():void
+		{
 			curInterstitial=nextPlatform(totalInstialRate, interstitialPlatforms) as IInterstitial;
 			if (curInterstitial != null)
 			{
@@ -152,6 +160,7 @@ package so.cuo.platform.ad
 
 		public function showBanner(adSize:int, position:int):void
 		{
+			this.bannerFailTry=0;
 			bannerState.isBannerVisible=true;
 			bannerState.adSize=adSize;
 			bannerState.relationPosition=position;
@@ -161,6 +170,7 @@ package so.cuo.platform.ad
 
 		public function showBannerAbsolute(adSize:int, x:Number, y:Number):void
 		{
+			this.bannerFailTry=0;
 			bannerState.isBannerVisible=true;
 			bannerState.adSize=adSize;
 			bannerState.positionType=BannerState.ABS;
@@ -174,11 +184,11 @@ package so.cuo.platform.ad
 			if (!bannerState.isBannerVisible)
 				return;
 			var nextBanner:IAdapter=this.nextPlatform(totalBannerRate, bannerPlatforms);
-			if (nextBanner == curBanner)
-				return;
 			if (nextBanner == null)
 				return;
-			if (curBanner != null)
+//			if (nextBanner == curBanner)
+//				return;
+			if (curBanner != null&&nextBanner!=curBanner)
 			{
 				curBanner.hideBanner();
 			}
@@ -230,9 +240,10 @@ package so.cuo.platform.ad
 
 		public function showInterstitialOrCache():void
 		{
+			this.interstitialFailTry=0;
 			if (curInterstitial == null || !curInterstitial.isInterstitialReady())
 			{
-				this.cacheInterstitial();
+				this.docacheInterstitial();
 			}
 			else
 			{
@@ -298,11 +309,27 @@ package so.cuo.platform.ad
 			logTrace("AdManager.onAdEvent: platform:" + event.currentTarget + " event:" + event.type);
 			if (this.autuCache && event.type == AdEvent.onInterstitialDismiss || event.type == AdEvent.onInterstitialFailedReceive)
 			{
-				this.cacheInterstitial();
+				if(event.type==AdEvent.onInterstitialFailedReceive){
+					interstitialFailTry++;
+					if(interstitialFailTry<5){
+						docacheInterstitial();
+					}
+				}else{
+					this.docacheInterstitial();
+				}
 			}
 			if (event.type == AdEvent.onBannerFailedReceive)
 			{
-				this.nextAdBanner();
+				bannerFailTry++;
+				if(bannerFailTry<5){
+					this.nextAdBanner();
+				}
+			}
+			if(event.type==AdEvent.onInterstitialReceive){
+				interstitialFailTry=0;
+			}
+			if(event.type==AdEvent.onBannerReceive){
+				bannerFailTry=0;
 			}
 			var e:AdMangerEvent=new AdMangerEvent(AdMangerEvent.onADEvent);
 			e.eventType=event.type;
