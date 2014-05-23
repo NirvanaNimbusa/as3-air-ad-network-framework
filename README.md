@@ -1,14 +1,16 @@
 as3-air-ad-network-framework<br/>
 ============================
-project home:https://code.google.com/p/adoble-flash-air-ad-network-framework/
+project home:https://code.google.com/p/adoble-flash-air-ad-network-framework/<br/>
 adwhirl for actionscript ?yes ,it do as adwhirl,but more simple and not need server <br/>
 with this lib, flash developer will been able to  add a variety of ad networks advertising in mobile applications  quickly and easily, <br/>
 manage,switching and set rate of each advertising platform no more than 10 line actionscript  code<br/>
 Library comes with support for admob (  ios, android), inmobi (ios, android), chartboost (ios, android), iad (ios) 4 ad platforms now<br/>
 air Developers can choose any numbers of platform used in a mobile application, or write your own advertising platform plugin  extension<br/>
-#Use
-1 download compiled platforms.swc or checkout the source, add to  flash to flex mobile project  project path<br/>
-2 Use the built-in support for the platform , download the corresponding platforms ane, and add it to flash  native extension library path. following admob and inmobi to use in an application as an example<br/>
+#Usage
+### 1.download
+ compiled platforms.swc or checkout the source, add to  flash to flex mobile project  project path<br/>
+### 2.Use the built-in support for the platform 
+ download the corresponding platforms ane, and add it to flash  native extension library path. following admob and inmobi to use in an application as an example<br/>
 -	 config ad platforms you would like to add in air application , AdItem(platform ,rate , appid, signKey,maxInterstitialShowChount) (admob  recommended no more than 5 )<br/>
 ```
 var list: Vector <AdItem> = new Vector <AdItem> ();
@@ -32,8 +34,10 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 -	if you use  banner in applications , you must  tested each banner platform, because a slight difference between the various platforms , such iad banner is 66 pixel height , admob is 50 pixels height.<br/>
 -	 for more function such as events, show ,hidden  , support  detect you can ref to demo project code<br/>
 
-3.write your own extensions , if you do not use the built-in extensions ,  check out the source code , and then create a adapter for your own extension,??According to support Banner, Interstitial, or MorePage, to impliments the corresponding interface IBanner, IInterstitial or IMorePage. Implementation of specific interfaces can refer AdmobAdapter.as source<br/>
-4.android permission to use this need to configure the network permission in the xxx-app.xml<br/>
+###3.write your own extensions 
+ if you do not use the built-in extensions ,  check out the source code , and then create a adapter for your own extension,??According to support Banner, Interstitial, or MorePage, to impliments the corresponding interface IBanner, IInterstitial or IMorePage. Implementation of specific interfaces can refer AdmobAdapter.as source<br/>
+###4.android permission
+ to use this in android air application need to configure the network permission in the xxx-app.xml<br/>
 ```
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
