@@ -75,3 +75,23 @@ android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|s
 - Supported Platforms : ios<br/>
 - Support Ad Type : Banner, Interstitial<br/>
 - ExtensionID: so.cuo.platform.iad<br/>
+
+###baidu<br/>
+- Download :https://github.com/lilili87222/baidu-ane-for-ios-and-android<br/>
+- Supported Platforms : ios,android<br/>
+- Support Ad Type : Banner, Interstitial<br/>
+- ExtensionID:  so.cuo.platform.baidu<br/>
+Other notes : android need to add the corresponding activity
+```
+	<uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+ 	<application>
+        <meta-data android:name="BaiduMobAd_APP_ID" android:value="debug" /> 
+        <meta-data android:name="BaiduMobAd_APP_SEC" android:value="debug" />
+         <activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
+        </application>
+```
