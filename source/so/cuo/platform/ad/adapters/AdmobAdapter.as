@@ -26,6 +26,8 @@ package so.cuo.platform.ad.adapters
 	public class AdmobAdapter extends EventDispatcher implements  IBanner, IInterstitial
 	{
 		protected static const banners:Vector.<AdSize>=new Vector.<AdSize>();
+		private var bannerKey:String;
+		private var instKey:String;
 		protected function get plat():Admob{
 			return Admob.getInstance();
 		}
@@ -78,11 +80,16 @@ package so.cuo.platform.ad.adapters
 
 		public function setTesting(deviceID:String=null):void
 		{
-			plat.setTesting(deviceID);
+//			plat.setTesting(deviceID);
 		}
 		public function setInterstitialKeys(appID:String, key:String=null):void
 		{
-			plat.setInterstitialKeys(appID,key);
+			if(appID==null)return;
+			if(bannerKey==null){
+				bannerKey=appID;
+			}
+			instKey=appID;
+			plat.setKeys(bannerKey,instKey);
 		}
 
 		public function cacheInterstitial():void
@@ -102,7 +109,12 @@ package so.cuo.platform.ad.adapters
 
 		public function setBannerKeys(appID:String, key:String=null):void
 		{
-			plat.setBannerKeys(appID,key);
+			if(appID==null)return;
+			if(instKey==null){
+				instKey=appID;
+			}
+			bannerKey=appID;
+			plat.setKeys(bannerKey,instKey);
 		}
 
 		public function showBanner(adSize:AdSize, position:int):void
