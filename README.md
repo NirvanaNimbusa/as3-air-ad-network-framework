@@ -1,6 +1,6 @@
 as3-air-ad-network-framework<br/>
 ============================
-project home:https://code.google.com/p/adoble-flash-air-ad-network-framework/<br/>
+project home:https://github.com/lilili87222/as3-air-ad-network-framework<br/>
 adwhirl for actionscript ?yes ,it do as adwhirl,but more simple and not need server <br/>
 with this lib, flash developer will been able to  add a variety of ad networks advertising in mobile applications  quickly and easily, <br/>
 manage,switching and set rate of each advertising platform no more than 10 line actionscript  code<br/>
@@ -45,7 +45,7 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 ```
 ##Supported Platforms 
 ###admob
-- Download : http://code.google.com/p/flash-air-admob-ane-for-ios/<br/>
+- Download : https://github.com/lilili87222/admob-for-flash<br/>
 - Supported Platforms : ios, android<br/>
 - Supported types of ads : Banner, Interstitial<br/>
 - ExtensionID: so.cuo.platform.admob<br/>
