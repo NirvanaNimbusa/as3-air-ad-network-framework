@@ -55,7 +55,7 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 ```
 ###inmobi
-- Download : http://code.google.com/p/inmobi-ad-flash-air-ane-ios-android/<br/>
+- Download : https://github.com/lilili87222/inmobi-ad-adobe-native-extention<br/>
 - Supported Platforms : ios, android<br/>
 - Supported types of ads : Banner, Interstitial<br/>
 - ExtensionID: so.cuo.platform.inmobi<br/>
@@ -65,13 +65,13 @@ android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|s
 ```
 
 ###chartboost<br/>
-- Download : http://code.google.com/p/chartboost-sdk/<br/>
+- Download :https://github.com/lilili87222/chartboost-ane-flash-air-android-ios<br/>
 - Supported platforms : ios, android<br/>
 - Support ad type : Interstitial, MorePage<br/>
 - ExtensionID: so.cuo.platform.chartboost<br/>
 
 ###IAd<br/>
-- Download : http://code.google.com/p/iad-ane-for-flash-air-mobile-ios/<br/>
+- Download : https://github.com/lilili87222/iad-ane-ios-air<br/>
 - Supported Platforms : ios<br/>
 - Support Ad Type : Banner, Interstitial<br/>
 - ExtensionID: so.cuo.platform.iad<br/>
