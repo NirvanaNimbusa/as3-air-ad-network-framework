@@ -13,12 +13,11 @@ package
 	import so.cuo.platform.ad.AdEvent;
 	import so.cuo.platform.ad.AdItem;
 	import so.cuo.platform.ad.AdManager;
-	import so.cuo.platform.ad.AdPosition;
 	import so.cuo.platform.ad.adapters.AdmobAdapter;
+	import so.cuo.platform.ad.adapters.BaiduAdapter;
 	import so.cuo.platform.ad.adapters.ChartboostAdapter;
 	import so.cuo.platform.ad.adapters.IAdAdapter;
 	import so.cuo.platform.ad.adapters.InmobiAdapter;
-	import so.cuo.platform.iad.IAd;
 
 	[SWF(width="960",height="640")]
 	public class demo extends Sprite
@@ -47,7 +46,8 @@ package
 		private function initAdmanager():void
 		{
 			var list:Vector.<AdItem>=new Vector.<AdItem>();
-			list.push(new AdItem(new AdmobAdapter(), 10, SYS.admobBannerID,"",5));
+			list.push(new AdItem(new BaiduAdapter(), 10, SYS.baiduAPPSID,SYS.baiduAPPSEC,5));
+			list.push(new AdItem(new AdmobAdapter(), 10, SYS.admobBannerID,SYS.admobInterstitialID,5));
 			list.push(new AdItem(new InmobiAdapter(), 10, SYS.getInmobiAppID()));
 			list.push(new AdItem(new ChartboostAdapter(), 10, SYS.chartboostAppId, SYS.appSignature));
 			list.push(new AdItem(new IAdAdapter(),10));
@@ -140,7 +140,7 @@ package
 			if (event.type == AdEvent.onInterstitialReceive)
 			{
 //				trace("flash showInterstitial");
-//				admob.showInterstitial();
+				adManager.showInterstitial();
 			}
 		}
 	}

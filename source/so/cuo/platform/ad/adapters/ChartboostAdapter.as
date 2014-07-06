@@ -8,6 +8,7 @@ package so.cuo.platform.ad.adapters
 	import so.cuo.platform.ad.IMorePage;
 	import so.cuo.platform.chartboost.Chartboost;
 	import so.cuo.platform.chartboost.ChartboostEvent;
+
 	
 	[Event(name="onInterstitialDismiss", type="so.cuo.platform.ad.AdEvent")]
 	[Event(name="onInterstitialFailedReceive", type="so.cuo.platform.ad.AdEvent")]
@@ -74,7 +75,6 @@ package so.cuo.platform.ad.adapters
 
 		public function setTesting(deviceID:String=null):void
 		{
-			plat.setTesting(deviceID);
 		}
 
 		public function setInterstitialKeys(appID:String, key:String=null):void

@@ -51,8 +51,8 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 - ExtensionID: so.cuo.platform.admob<br/>
 - Other notes : android need to add the corresponding activity<br/>
 ```
-<activity android:name="com.google.ads.AdActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+<meta-data android:name="com.google.android.gms.version" android:value="4452000" />
+<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 ```
 ###inmobi
 - Download : https://github.com/lilili87222/inmobi-ad-adobe-native-extention<br/>
