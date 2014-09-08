@@ -51,7 +51,7 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 - ExtensionID: so.cuo.platform.admob<br/>
 - Other notes : android need to add the corresponding activity<br/>
 ```
-<meta-data android:name="com.google.android.gms.version" android:value="4452000" />
+<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 ```
 ###inmobi
