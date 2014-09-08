@@ -4,7 +4,7 @@ platform£ºios£¬android
 ad type£ºBanner£¬Interstitial
 ExtensionID:so.cuo.platform.admob
 android£ºandroid add activity
-<meta-data android:name="com.google.android.gms.version" android:value="4452000" />
+<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
 2.inmobi
