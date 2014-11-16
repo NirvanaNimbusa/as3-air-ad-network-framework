@@ -1,30 +1,30 @@
 1.admob 
-download£ºhttps://github.com/lilili87222/admob-for-flash
-platform£ºios£¬android
-ad type£ºBanner£¬Interstitial
+downloadï¼šhttps://github.com/lilili87222/admob-for-flash
+platformï¼šiosï¼Œandroid
+ad typeï¼šBannerï¼ŒInterstitial
 ExtensionID:so.cuo.platform.admob
-android£ºandroid add activity
+androidï¼šandroid add activity
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
 2.inmobi
-download£ºhttps://github.com/lilili87222/inmobi-ad-adobe-native-extention
-platform£ºios£¬android
-add type£ºBanner£¬Interstitial
+downloadï¼šhttps://github.com/lilili87222/inmobi-ad-adobe-native-extention
+platformï¼šiosï¼Œandroid
+add typeï¼šBannerï¼ŒInterstitial
 ExtensionID:so.cuo.platform.inmobi
-android£ºandroid add activity
+androidï¼šandroid add activity
 	 <activity android:name="com.inmobi.androidsdk.IMBrowserActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:hardwareAccelerated="true" />
 
 3.chartboost
-download£ºhttps://github.com/lilili87222/chartboost-ane-flash-air-android-ios
-platform£ºios£¬android
-ad type£ºInterstitial£¬MorePage
+downloadï¼šhttps://github.com/lilili87222/chartboost-ane-flash-air-android-ios
+platformï¼šiosï¼Œandroid
+ad typeï¼šInterstitialï¼ŒMorePage
 ExtensionID:so.cuo.platform.chartboost
 
 4.IAd
-download£ºhttps://github.com/lilili87222/iad-ane-ios-air
-platform£ºios
-ad type£ºBanner£¬Interstitial
+downloadï¼šhttps://github.com/lilili87222/iad-ane-ios-air
+platformï¼šios
+ad typeï¼šBannerï¼ŒInterstitial
 ExtensionID:so.cuo.platform.iad
 
 5.Baidu
