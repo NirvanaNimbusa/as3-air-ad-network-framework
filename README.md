@@ -95,3 +95,8 @@ Other notes : android need to add the corresponding activity
          <activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
         </application>
 ```
+
+
+if user like this lib,you can download and review our game
+
+https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8
