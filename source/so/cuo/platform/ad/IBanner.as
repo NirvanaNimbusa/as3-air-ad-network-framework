@@ -4,7 +4,7 @@ package so.cuo.platform.ad
 	{
 		//banner
 		/**set banner key ,for admob appID need,for chartboost appid and sign need**/
-		function setBannerKeys(appID:String,key:String=null):void;
+//		function setBannerKeys(appID:String,key:String=null):void;
 		/**show banner relation ,position value in AdPosition
 		 * showBanner(new Adsize(320,50),AdPosition.BOTTOM_CENTER);
 		 * **/

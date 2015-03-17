@@ -85,11 +85,17 @@ package so.cuo.platform.ad.adapters
 			plat.removeEventListener(BaiDuAdEvent.onInterstitialPresent,onAdHandler);
 			plat.removeEventListener(BaiDuAdEvent.onInterstitialReceive,onAdHandler);
 		}
-
-		public function setInterstitialKeys(appID:String, key:String=null):void
+		public function setPlatform(key1:String, key2:String=""):void
+		{
+//			bannerKey=key1;
+//			instKey=key2;
+//			plat.setKeys(bannerKey,instKey);
+			plat.setKeys(key1,key2);
+		}
+		/*public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 			plat.setKeys(appID,key);
-		}
+		}*/
 
 		public function cacheInterstitial():void
 		{
@@ -111,10 +117,10 @@ package so.cuo.platform.ad.adapters
 			return true;
 		}
 
-		public function setBannerKeys(appID:String, key:String=null):void
+		/*public function setBannerKeys(appID:String, key:String=null):void
 		{
 			plat.setKeys(appID,key);
-		}
+		}*/
 
 		public function showBanner(adSize:AdSize, position:int):void
 		{

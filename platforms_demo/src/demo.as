@@ -46,11 +46,11 @@ package
 		private function initAdmanager():void
 		{
 			var list:Vector.<AdItem>=new Vector.<AdItem>();
-			list.push(new AdItem(new BaiduAdapter(), 10, SYS.baiduAPPSID,SYS.baiduAPPSEC,5));
+			list.push(new AdItem(new BaiduAdapter(), 5, SYS.baiduAPPSID,SYS.baiduAPPSEC,5));
 			list.push(new AdItem(new AdmobAdapter(), 10, SYS.admobBannerID,SYS.admobInterstitialID,5));
-			list.push(new AdItem(new InmobiAdapter(), 10, SYS.getInmobiAppID()));
-			list.push(new AdItem(new ChartboostAdapter(), 10, SYS.chartboostAppId, SYS.appSignature));
-			list.push(new AdItem(new IAdAdapter(),10));
+//			list.push(new AdItem(new InmobiAdapter(), 10, SYS.getInmobiAppID()));
+//			list.push(new AdItem(new ChartboostAdapter(), 10, SYS.chartboostAppId, SYS.appSignature));
+//			list.push(new AdItem(new IAdAdapter(),10));
 			AdManager.getInstance().configPlatforms(list);
 			AdManager.getInstance().showInterstitialOrCache();
 			adManager=AdManager.getInstance();

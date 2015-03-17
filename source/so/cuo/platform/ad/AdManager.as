@@ -46,6 +46,7 @@ package so.cuo.platform.ad
 			for each (var item:AdItem in config)
 			{
 				var adapter:IAdapter=item.platform;
+				adapter.setPlatform(item.key1,item.key2);
 				if (adapter != null && adapter.supportDevice)
 				{
 					if (testingDeviceID != "")
@@ -55,10 +56,10 @@ package so.cuo.platform.ad
 						var banner:IBanner=adapter as IBanner;
 						if (banner.supportedBanner)
 						{
-							if (item.appKey != null)
-							{
-								banner.setBannerKeys(item.appKey, item.signKey);
-							}
+//							if (item.appKey != null)
+//							{
+//								banner.setBannerKeys(item.appKey, item.signKey);
+//							}
 							totalBannerRate+=item.rate;
 							bannerPlatforms.push(item);
 							banner.addEventListener(AdEvent.onBannerFailedReceive, onAdEvent);
@@ -73,10 +74,10 @@ package so.cuo.platform.ad
 						var interstitial:IInterstitial=adapter as IInterstitial;
 						if (interstitial.supportedInterstitial)
 						{
-							if (item.appKey != null)
-							{
-								interstitial.setInterstitialKeys(item.appKey, item.signKey);
-							}
+//							if (item.appKey != null)
+//							{
+//								interstitial.setInterstitialKeys(item.appKey, item.signKey);
+//							}
 							totalInstialRate+=item.rate;
 							interstitialPlatforms.push(item);
 							interstitial.addEventListener(AdEvent.onInterstitialFailedReceive, onAdEvent);

@@ -4,7 +4,7 @@ package so.cuo.platform.ad
 	{
 		//more app page
 		/**set more app key,chartboost need**/
-		function setMoreAppKeys(appID:String,key:String=null):void;
+//		function setMoreAppKeys(appID:String,key:String=null):void;
 		/**cache more app page,call this before showMoreApp**/
 		function cacheMoreApp():void;
 		/**show more app page 

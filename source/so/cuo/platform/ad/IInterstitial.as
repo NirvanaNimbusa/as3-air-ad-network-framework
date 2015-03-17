@@ -4,7 +4,7 @@ package so.cuo.platform.ad
 	{
 		//interstitial
 		/**set interstitial keys ,for admob ,just appID need ,chartboost need appid and sign**/
-		function setInterstitialKeys(appID:String,key:String=null):void;
+//		function setInterstitialKeys(appID:String,key:String=null):void;
 		/**cache interstitial ,call this before showInterstial**/
 		function cacheInterstitial():void;
 		/**show interstitial ,call this after isInterstitialReady true

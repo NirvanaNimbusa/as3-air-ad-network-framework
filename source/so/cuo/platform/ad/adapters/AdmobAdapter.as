@@ -70,19 +70,19 @@ package so.cuo.platform.ad.adapters
 
 		public function get supportedBanner():Boolean
 		{
-			return true;
+			return plat.supportDevice;
 		}
 
 		public function get supportedInterstitial():Boolean
 		{
-			return true;
+			return plat.supportDevice;
 		}
 
 		public function setTesting(deviceID:String=null):void
 		{
 //			plat.setTesting(deviceID);
 		}
-		public function setInterstitialKeys(appID:String, key:String=null):void
+/*		public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 			if(appID==null)return;
 			if(bannerKey==null){
@@ -90,7 +90,7 @@ package so.cuo.platform.ad.adapters
 			}
 			instKey=appID;
 			plat.setKeys(bannerKey,instKey);
-		}
+		}*/
 
 		public function cacheInterstitial():void
 		{
@@ -107,13 +107,10 @@ package so.cuo.platform.ad.adapters
 			return plat.isInterstitialReady();
 		}
 
-		public function setBannerKeys(appID:String, key:String=null):void
+		public function setPlatform(key1:String, key2:String=""):void
 		{
-			if(appID==null)return;
-			if(instKey==null){
-				instKey=appID;
-			}
-			bannerKey=appID;
+			bannerKey=key1;
+			instKey=key2;
 			plat.setKeys(bannerKey,instKey);
 		}
 

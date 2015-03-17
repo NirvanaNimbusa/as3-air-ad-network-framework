@@ -77,11 +77,14 @@ package so.cuo.platform.ad.adapters
 		{
 			plat.setTesting(deviceID);
 		}
-		public function setInterstitialKeys(appID:String, key:String=null):void
+		/*public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 			plat.setInterstitialKeys(appID,key);
+		}*/
+		public function setPlatform(key1:String, key2:String=""):void
+		{
+			plat.setBannerKeys(key1,key2);
 		}
-
 		public function cacheInterstitial():void
 		{
 			plat.cacheInterstitial();
@@ -97,10 +100,10 @@ package so.cuo.platform.ad.adapters
 			return plat.isInterstitialReady();
 		}
 
-		public function setBannerKeys(appID:String, key:String=null):void
+		/*public function setBannerKeys(appID:String, key:String=null):void
 		{
 			plat.setBannerKeys(appID,key);
-		}
+		}*/
 
 		public function showBanner(adSize:AdSize, position:int):void
 		{

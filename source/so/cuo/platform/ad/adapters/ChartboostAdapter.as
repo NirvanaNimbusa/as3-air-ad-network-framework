@@ -65,22 +65,28 @@ package so.cuo.platform.ad.adapters
 */
 		public function get supportedMoreApp():Boolean
 		{
-			return plat.supportedMoreApp;
+			return plat.supportDevice;
 		}
 
 		public function get supportedInterstitial():Boolean
 		{
-			return plat.supportedInterstitial;
+			return plat.supportDevice;
 		}
 
 		public function setTesting(deviceID:String=null):void
 		{
 		}
-
-		public function setInterstitialKeys(appID:String, key:String=null):void
+		public function setPlatform(key1:String, key2:String=""):void
 		{
-			plat.setInterstitialKeys(appID,key);
+			plat.setChartboostKeys(key1,key2);/*
+			bannerKey=key1;
+			instKey=key2;
+			plat.setKeys(bannerKey,instKey);*/
 		}
+		/*public function setInterstitialKeys(appID:String, key:String=null):void
+		{
+			plat.setChartboostKeys(appID,key);
+		}*/
 
 		public function cacheInterstitial():void
 		{
@@ -96,11 +102,11 @@ package so.cuo.platform.ad.adapters
 		{
 			return plat.isInterstitialReady();
 		}
-
+/*
 		public function setMoreAppKeys(appID:String, key:String=null):void
 		{
-			plat.setMoreAppKeys(appID,key);
-		}
+			plat.setChartboostKeys(appID,key);
+		}*/
 
 		public function cacheMoreApp():void
 		{
