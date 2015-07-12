@@ -135,6 +135,7 @@ package so.cuo.platform.ad.adapters
 			banners[AdSize.PAD_PORTRAIT]=new AdSize(Admob.IPAD_PORTRAIT.width,Admob.IPAD_PORTRAIT.height);
 			banners[AdSize.PAD_LANDSCAPE]=new AdSize(Admob.IPAD_LANDSCAPE.width,Admob.IPAD_LANDSCAPE.height);
 			banners[AdSize.IAB_MRECT]=new AdSize(Admob.IAB_MRECT.width,Admob.IAB_MRECT.height);
+			banners[AdSize.SMART_BANNER]=new AdSize(Admob.SMART_BANNER.width,Admob.SMART_BANNER.height);
 		}
 		public function getBannerSize(type:int):AdSize{
 			if(type<banners.length&&type>=0){

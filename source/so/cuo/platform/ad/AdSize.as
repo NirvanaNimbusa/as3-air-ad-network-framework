@@ -31,6 +31,7 @@ package   so.cuo.platform.ad
 		public static const PAD_PORTRAIT:int=2;//new AdSize(769, 90)
 		public static const PAD_LANDSCAPE:int=3;//new AdSize(728, 90)
 		public static const IAB_MRECT:int=4;//AdSize(300, 250)
+		public static const SMART_BANNER:int=5;//AdSize(300, 250)
 		protected var _width:int;
 		protected var _height:int;
 
