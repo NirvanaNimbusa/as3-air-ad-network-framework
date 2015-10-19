@@ -14,8 +14,8 @@ air Developers can choose any numbers of platform used in a mobile application, 
 -	 config ad platforms you would like to add in air application , AdItem(platform ,rate , appid, signKey,maxInterstitialShowChount) (admob  recommended no more than 5 )<br/>
 ```
 var list: Vector <AdItem> = new Vector <AdItem> ();
-list.push (new AdItem (new AdmobAdapter (), 10, "admob app id", "", 5));
-list.push (new AdItem (new InmobiAdapter (), 10, "inmobi app id"));
+list.push (new AdItem (new AdmobAdapter ("admob banner id", "interstitial id"), 10, 5));
+list.push (new AdItem (new InmobiAdapter ("inmobi id"), 10));
 AdManager.getInstance () configPlatforms (list);
 ```
 -	 show Interstitial ,  showInterstitialOrCache() will detects weather already loaded success, if loaded success will show it ,else  loaded automatically  ,wait for the next calling,If loading fails , it will automatically switch to the next platform to try to load.<br/>
