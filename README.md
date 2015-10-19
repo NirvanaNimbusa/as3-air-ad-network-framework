@@ -77,7 +77,7 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 - ExtensionID: so.cuo.platform.iad<br/>
 
 ###baidu<br/>
-- Download :https://github.com/lilili87222/baidu-ane-for-ios-and-android<br/>
+- Download :https://github.com/lilili87222/baidu-ssp-ane<br/>
 - Supported Platforms : ios,android<br/>
 - Support Ad Type : Banner, Interstitial<br/>
 - ExtensionID:  so.cuo.platform.baidu<br/>
