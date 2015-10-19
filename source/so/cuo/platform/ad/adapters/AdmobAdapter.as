@@ -31,8 +31,11 @@ package so.cuo.platform.ad.adapters
 		protected function get plat():Admob{
 			return Admob.getInstance();
 		}
-		public function AdmobAdapter()
+		public function AdmobAdapter(bannerID:String,institialID:String)
 		{
+			this.bannerKey=bannerID;
+			this.instKey=institialID;
+			plat.setKeys(bannerID,institialID);
 			plat.addEventListener(AdmobEvent.onBannerDismiss,onAdHandler);
 			plat.addEventListener(AdmobEvent.onBannerFailedReceive,onAdHandler);
 			plat.addEventListener(AdmobEvent.onBannerLeaveApplication,onAdHandler);
@@ -107,12 +110,12 @@ package so.cuo.platform.ad.adapters
 			return plat.isInterstitialReady();
 		}
 
-		public function setPlatform(key1:String, key2:String=""):void
+	/*	public function setPlatform(key1:String, key2:String=""):void
 		{
 			bannerKey=key1;
 			instKey=key2;
 			plat.setKeys(bannerKey,instKey);
-		}
+		}*/
 
 		public function showBanner(adSize:AdSize, position:int):void
 		{

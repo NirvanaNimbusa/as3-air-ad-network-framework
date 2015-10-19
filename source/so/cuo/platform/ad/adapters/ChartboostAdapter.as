@@ -22,8 +22,9 @@ package so.cuo.platform.ad.adapters
 			return Chartboost.getInstance();
 		}
 
-		public function ChartboostAdapter()
+		public function ChartboostAdapter(appid:String,appSign:String)
 		{
+			plat.setChartboostKeys(appid,appSign);
 			plat.addEventListener(ChartboostEvent.onInterstitialDismiss, onAdHandler);
 			plat.addEventListener(ChartboostEvent.onInterstitialFailedReceive, onAdHandler);
 			plat.addEventListener(ChartboostEvent.onInterstitialLeaveApplication, onAdHandler);
@@ -76,13 +77,7 @@ package so.cuo.platform.ad.adapters
 		public function setTesting(deviceID:String=null):void
 		{
 		}
-		public function setPlatform(key1:String, key2:String=""):void
-		{
-			plat.setChartboostKeys(key1,key2);/*
-			bannerKey=key1;
-			instKey=key2;
-			plat.setKeys(bannerKey,instKey);*/
-		}
+		
 		/*public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 			plat.setChartboostKeys(appID,key);

@@ -27,8 +27,9 @@ package so.cuo.platform.ad.adapters
 		protected function get plat():Inmobi{
 			return Inmobi.getInstance();
 		}
-		public function InmobiAdapter()
+		public function InmobiAdapter(appid:String)
 		{
+			plat.setBannerKeys(appid);
 			plat.addEventListener(InmobiEvent.onBannerDismiss,onAdHandler);
 			plat.addEventListener(InmobiEvent.onBannerFailedReceive,onAdHandler);
 			plat.addEventListener(InmobiEvent.onBannerLeaveApplication,onAdHandler);
@@ -81,10 +82,10 @@ package so.cuo.platform.ad.adapters
 		{
 			plat.setInterstitialKeys(appID,key);
 		}*/
-		public function setPlatform(key1:String, key2:String=""):void
+		/*public function setPlatform(key1:String, key2:String=""):void
 		{
 			plat.setBannerKeys(key1,key2);
-		}
+		}*/
 		public function cacheInterstitial():void
 		{
 			plat.cacheInterstitial();

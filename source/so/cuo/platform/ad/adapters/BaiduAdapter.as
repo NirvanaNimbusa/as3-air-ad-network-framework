@@ -27,8 +27,9 @@ package so.cuo.platform.ad.adapters
 		protected function get plat():BaiDu{
 			return BaiDu.getInstance();
 		}
-		public function BaiduAdapter()
+		public function BaiduAdapter(appid:String,bannerID:String,institialID:String,videoID:String)
 		{
+			plat.setKeys(appid,bannerID,institialID,videoID);
 			plat.addEventListener(BaiDuAdEvent.onBannerDismiss,onAdHandler);
 			plat.addEventListener(BaiDuAdEvent.onBannerFailedReceive,onAdHandler);
 			plat.addEventListener(BaiDuAdEvent.onBannerLeaveApplication,onAdHandler);
@@ -85,13 +86,13 @@ package so.cuo.platform.ad.adapters
 			plat.removeEventListener(BaiDuAdEvent.onInterstitialPresent,onAdHandler);
 			plat.removeEventListener(BaiDuAdEvent.onInterstitialReceive,onAdHandler);
 		}
-		public function setPlatform(key1:String, key2:String=""):void
+/*		public function setPlatform(key1:String, key2:String=""):void
 		{
 //			bannerKey=key1;
 //			instKey=key2;
 //			plat.setKeys(bannerKey,instKey);
 			plat.setKeys(key1,key2);
-		}
+		}*/
 		/*public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 			plat.setKeys(appID,key);

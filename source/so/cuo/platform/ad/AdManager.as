@@ -46,7 +46,7 @@ package so.cuo.platform.ad
 			for each (var item:AdItem in config)
 			{
 				var adapter:IAdapter=item.platform;
-				adapter.setPlatform(item.key1,item.key2);
+//				adapter.setPlatform(item.key1,item.key2);
 				if (adapter != null && adapter.supportDevice)
 				{
 					if (testingDeviceID != "")

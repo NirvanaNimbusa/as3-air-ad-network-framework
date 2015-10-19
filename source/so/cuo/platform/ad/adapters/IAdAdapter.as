@@ -96,9 +96,9 @@ package so.cuo.platform.ad.adapters
 		public function setInterstitialKeys(appID:String, key:String=null):void
 		{
 		}*/
-		public function setPlatform(key1:String, key2:String=""):void
+	/*	public function setPlatform(key1:String, key2:String=""):void
 		{
-		}
+		}*/
 		public function setTesting(deviceID:String=null):void
 		{
 		}

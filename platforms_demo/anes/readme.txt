@@ -28,11 +28,9 @@ ad type：Banner，Interstitial
 ExtensionID:so.cuo.platform.iad
 
 5.Baidu
-Download :https://github.com/lilili87222/baidu-ane-for-ios-and-android
+Download :https://github.com/lilili87222/baidu-ssp-ane
 Supported Platforms : ios,android
 Support Ad Type : Banner, Interstitial
 ExtensionID: so.cuo.platform.baidu
 android:
-<meta-data android:name="BaiduMobAd_APP_ID" android:value="debug" /> 
-<meta-data android:name="BaiduMobAd_APP_SEC" android:value="debug" />
 <activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 

@@ -7,7 +7,7 @@ package  so.cuo.platform.ad
 	public interface IAdapter extends IEventDispatcher
 	{
 		/**test this ane if  this device,pc and simulator aways return false,android and ios return true**/
-		function  setPlatform(key1:String,key2:String=null):void;
+//		function  setPlatform(key1:String,key2:String=null):void;
 		function get supportDevice():Boolean;
 		function setTesting(deviceID:String=null):void;
 		/**ad event handler in ane**/
