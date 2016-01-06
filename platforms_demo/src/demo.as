@@ -1,146 +1,84 @@
 package
 {
-	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.text.TextField;
-	import flash.text.TextFieldType;
-	import flash.text.TextFormat;
 	
-	import so.cuo.platform.ad.AdEvent;
-	import so.cuo.platform.ad.AdItem;
-	import so.cuo.platform.ad.AdManager;
-	import so.cuo.platform.ad.adapters.AdmobAdapter;
-	import so.cuo.platform.ad.adapters.BaiduAdapter;
-	import so.cuo.platform.ad.adapters.ChartboostAdapter;
-	import so.cuo.platform.ad.adapters.IAdAdapter;
-	import so.cuo.platform.ad.adapters.InmobiAdapter;
-
+	import so.cuo.platform.ad.*;
+	import so.cuo.platform.ad.adapters.*;
 	[SWF(width="960",height="640")]
 	public class demo extends Sprite
 	{
-		[Embed(source="Default.png")]
-		private static var Background:Class;
-		public var xkey:TextField=new TextField();
-		public var ykey:TextField=new TextField();
-		public var typekey:TextField=new TextField();
-		public var absSubmitButton:TextField=new TextField();
-		public var relationSubmitButton:TextField=new TextField();
-		public var hideSubmitButton:TextField=new TextField();
-		public var interstitialSubmitButton:TextField=new TextField();
-		private var format:TextFormat=new TextFormat(null, 38);
-		private var adManager:AdManager;
-
 		public function demo()
 		{
 			super();
 			stage.align=StageAlign.TOP_LEFT;
-			stage.scaleMode=StageScaleMode.NO_BORDER;
-			initUI();
-			initAdmanager();
-		}
-
-		private function initAdmanager():void
-		{
-			var list:Vector.<AdItem>=new Vector.<AdItem>();
-			list.push(new AdItem(new BaiduAdapter(), 5, SYS.baiduAPPSID,SYS.baiduAPPSEC,5));
-			list.push(new AdItem(new AdmobAdapter(), 10, SYS.admobBannerID,SYS.admobInterstitialID,5));
-//			list.push(new AdItem(new InmobiAdapter(), 10, SYS.getInmobiAppID()));
-//			list.push(new AdItem(new ChartboostAdapter(), 10, SYS.chartboostAppId, SYS.appSignature));
-//			list.push(new AdItem(new IAdAdapter(),10));
+			stage.scaleMode=StageScaleMode.NO_SCALE;
+			var ui:UI=new UI(onClick);
+			addChild(ui);
+			ui.addButton("top", 0, 50);
+			ui.addButton("abs", 200, 50);
+			ui.addButton("hide", 0, 150);
+			ui.addButton("Interstitial", 200, 150);
+			ui.addButton("moreapp", 0, 250);
+			ui.addButton("bottom", 200, 250);
+			
+			
+			var list:Vector.<AdItem>=new Vector.<AdItem>();// 
+			list.push(new AdItem(new BaiduAdapter("appid","banner id","insti id","video id"), 10,5));
+			list.push(new AdItem(new AdmobAdapter("banner id","inst id"), 10,5));
+			list.push(new AdItem(new InmobiAdapter("app id"), 10));
+			list.push(new AdItem(new ChartboostAdapter("app id","app sign"), 10));
+			list.push(new AdItem(new GDTAdapter("app id","banner id","insti id","more app id"), 10));
+			list.push(new AdItem(new IAdAdapter(),10));
 			AdManager.getInstance().configPlatforms(list);
+			
+			AdManager.getInstance().addEventListener(AdEvent.onBannerFailedReceive,onAdFailEvent);
+			AdManager.getInstance().addEventListener(AdEvent.onInterstitialFailedReceive,onAdFailEvent);
+			AdManager.getInstance().addEventListener(AdEvent.onInterstitialReceive,onInterstitialSuccessEvent);
+		}
+		
+		protected function onInterstitialSuccessEvent(event:AdEvent):void
+		{
+			trace("load ad success"+event.type);
 			AdManager.getInstance().showInterstitialOrCache();
-			adManager=AdManager.getInstance();
+		}
+		
+		private function onAdFailEvent(event:AdEvent):void
+		{
+			trace("load ad failed " + event.type +"  with event data:"+event.data);
 		}
 
-		private function initUI():void
+		private function onClick(label:String):void
 		{
-			var bg:Bitmap=new Background();
-			this.addChild(bg);
-			typekey.y=ykey.y=xkey.y=100;
-			xkey.x=100;
-			ykey.x=300;
-			typekey.x=500;
-			typekey.type=ykey.type=xkey.type=TextFieldType.INPUT;
-			typekey.border=xkey.border=ykey.border=true;
-			this.hideSubmitButton.width=relationSubmitButton.width=interstitialSubmitButton.width=absSubmitButton.width=xkey.width=ykey.width=140;
-			this.typekey.height=this.hideSubmitButton.height=relationSubmitButton.height=interstitialSubmitButton.height=absSubmitButton.height=xkey.height=ykey.height=48;
-			this.typekey.defaultTextFormat=this.hideSubmitButton.defaultTextFormat=interstitialSubmitButton.defaultTextFormat=relationSubmitButton.defaultTextFormat=absSubmitButton.defaultTextFormat=xkey.
-				defaultTextFormat=ykey.defaultTextFormat=this.format;
-			absSubmitButton.text="absolute";
-			relationSubmitButton.text="relation";
-			interstitialSubmitButton.text="interstitial";
-			this.hideSubmitButton.text="hide";
-			xkey.text="8"; // relation position type or abs position x value
-			ykey.text="0"; //abs position y value
-			typekey.text="1"; // banner type
-			this.addChild(xkey);
-			this.addChild(ykey);
-			this.addChild(this.typekey);
-			this.addChild(absSubmitButton);
-			this.addChild(this.relationSubmitButton);
-			this.addChild(this.interstitialSubmitButton);
-			this.addChild(this.hideSubmitButton);
-			this.hideSubmitButton.x=relationSubmitButton.x=interstitialSubmitButton.x=absSubmitButton.x=100;
-			this.relationSubmitButton.selectable=this.absSubmitButton.selectable=this.interstitialSubmitButton.selectable=false;
-			this.relationSubmitButton.border=this.absSubmitButton.border=this.interstitialSubmitButton.border=true;
-			this.relationSubmitButton.y=200;
-			this.absSubmitButton.y=300;
-			this.interstitialSubmitButton.y=400;
-			this.hideSubmitButton.y=500;
-			absSubmitButton.addEventListener(MouseEvent.CLICK, this.click);
-			relationSubmitButton.addEventListener(MouseEvent.CLICK, this.click);
-			interstitialSubmitButton.addEventListener(MouseEvent.CLICK, this.click);
-			this.hideSubmitButton.addEventListener(MouseEvent.CLICK, this.click);
-		}
-
-		protected function click(event:MouseEvent):void
-		{
-			var text:TextField=event.currentTarget as TextField;
-			var xv:int=parseInt(xkey.text);
-			var yv:int=parseInt(ykey.text);
-			var adsize:int=parseInt(typekey.text);//0-4尺寸
-			if(adsize<0||adsize>4)adsize=0;
-			if (text == this.hideSubmitButton)
+			trace("click:" + label);
+			if (label == "top")
 			{
-				adManager.hideBanner();
+				AdManager.getInstance().showBanner(AdSize.BANNER_STANDARD,AdPosition.TOP_CENTER);
 			}
-			if (text == this.absSubmitButton)
+			else if (label == "bottom")
 			{
-				adManager.showBannerAbsolute(adsize, xv, yv);
+				AdManager.getInstance().showBanner(AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CENTER);
 			}
-			else if (text == this.relationSubmitButton)
+			else if (label == "abs")
 			{
-				if (xv > 9)
-					xv=9;
-				if (xv < 1)
-					xv=1;
-				adManager.showBanner(adsize, xv);
+				AdManager.getInstance().showBannerAbsolute(AdSize.PHONE_PORTRAIT,0,80);
 			}
-			else if (text == this.interstitialSubmitButton)
+			else if (label == "hide")
 			{
-				adManager.showInterstitialOrCache();
+				AdManager.getInstance().hideBanner();
 			}
-		}
-
-		protected function onBannerFail(event:Event):void
-		{
-			trace(event.type);
-		}
-
-		protected function onAdReceived(event:AdEvent):void
-		{
-			if (event.type == AdEvent.onBannerReceive)
+			else if (label == "moreapp")
 			{
-				trace(event.data.width, event.data.height);
+				if(AdManager.getInstance().isMoreAppReady()){
+					AdManager.getInstance().showMoreApp();
+				}else{
+					AdManager.getInstance().cacheMoreApp();
+				}
 			}
-			if (event.type == AdEvent.onInterstitialReceive)
+			else if (label == "Interstitial")
 			{
-//				trace("flash showInterstitial");
-				adManager.showInterstitial();
+				AdManager.getInstance().showInterstitialOrCache();
 			}
 		}
 	}

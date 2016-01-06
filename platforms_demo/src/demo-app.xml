@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/17.0">
+<application xmlns="http://ns.adobe.com/air/application/19.0">
 
 	<!-- Adobe AIR Application Descriptor File Template.
 
@@ -15,7 +15,7 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>so.phonegame.xiaoxiaokan</id>
+	<id>so.phonegame.demo</id>
 
 	<!-- Used as the filename for the application. Required. -->
 	<filename>demo</filename>
@@ -262,8 +262,7 @@
 	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
 
 	<android>
-		<manifestAdditions>
-			<![CDATA[
+		<manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
 				<uses-permission android:name="android.permission.INTERNET"/>
 			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -272,24 +271,30 @@
 			    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 			     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
 			     <application>
 			     
-			        <meta-data android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
-			  	        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
-			     
-    			 	    <meta-data android:name="BaiduMobAd_APP_ID" android:value="debug" /> 
-    			 		<meta-data android:name="BaiduMobAd_APP_SEC" android:value="debug" />
-			  	 		<activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
-			  	 		
-				   		<activity android:name="com.inmobi.androidsdk.IMBrowserActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:hardwareAccelerated="true" /> 
+			       <!-- admob -->
+			        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+			  	    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
+
+				   <!-- baidu -->        
+    				<activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation" /> 
+    			 	    	
+    			    	<!-- inmobi -->
+				    <activity android:name="com.inmobi.androidsdk.IMBrowserActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:hardwareAccelerated="true" /> 
+				   	
+				<!-- chartboost -->
+				   	<activity android:name="com.chartboost.sdk.CBImpressionActivity" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:configChanges="keyboardHidden|orientation|screenSize"/>
+                    
+                <!-- gdt -->
+                    <service android:name="com.qq.e.comm.DownloadService" android:exported="false" />
+					<activity android:name="com.qq.e.ads.ADActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+				
 				</application>
 			</manifest>
 			
-		]]>
-		</manifestAdditions>
+		]]></manifestAdditions>
 	</android>
 	<iPhone>
 		<InfoAdditions>
@@ -308,6 +313,7 @@
 		<extensionID>so.cuo.platform.chartboost</extensionID>
 		<extensionID>so.cuo.platform.inmobi</extensionID>
 		<extensionID>so.cuo.platform.iad</extensionID>
-    	<extensionID>so.cuo.platform.baidu</extensionID>
+    <extensionID>so.cuo.platform.baidussp</extensionID>
+    <extensionID>so.cuo.platform.gdt</extensionID>
     </extensions>
 </application>
