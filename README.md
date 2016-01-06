@@ -69,6 +69,9 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 - Supported platforms : ios, android<br/>
 - Support ad type : Interstitial, MorePage<br/>
 - ExtensionID: so.cuo.platform.chartboost<br/>
+```
+	<activity android:name="com.chartboost.sdk.CBImpressionActivity" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:configChanges="keyboardHidden|orientation|screenSize"/><br/>
+```
 
 ###IAd<br/>
 - Download : https://github.com/lilili87222/iad-ane-ios-air<br/>
@@ -90,12 +93,23 @@ Other notes : android need to add the corresponding activity
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
  	<application>
-        <meta-data android:name="BaiduMobAd_APP_ID" android:value="debug" /> 
-        <meta-data android:name="BaiduMobAd_APP_SEC" android:value="debug" />
          <activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
         </application>
 ```
 
+
+### gdt <br/>
+- Download :https://github.com/lilili87222/tencent-qq-gdt<br/>
+- Supported Platforms : ios,android<br/>
+- Support Ad Type : Banner, Interstitial,More APP<br/>
+- ExtensionID:  so.cuo.platform.gdt<br/>
+Other notes : android need to add the corresponding activity
+```
+ 
+        <service android:name="com.qq.e.comm.DownloadService" android:exported="false" />
+					<activity android:name="com.qq.e.ads.ADActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+ 
+```
 
 if user like this lib,you can download and review our game <br/>
 https://itunes.apple.com/us/artist/phonegame/id553087275?mt=8 <br/>
