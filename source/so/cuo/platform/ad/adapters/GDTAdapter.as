@@ -53,6 +53,8 @@ package so.cuo.platform.ad.adapters
 			banners[AdSize.PAD_PORTRAIT]=new AdSize(GDTAds.BANNER_728x90.width,GDTAds.BANNER_728x90.height);
 			banners[AdSize.PAD_LANDSCAPE]=new AdSize(GDTAds.BANNER_728x90.width,GDTAds.BANNER_728x90.height);
 			banners[AdSize.IAB_MRECT]=new AdSize(GDTAds.ANDROID_BANNER_220X120.width,GDTAds.ANDROID_BANNER_220X120.height);
+			banners[AdSize.SMART_BANNER]=new AdSize(GDTAds.ANDROID_SMART_BANNER.width,GDTAds.ANDROID_SMART_BANNER.height);
+			banners[AdSize.BANNER_STANDARD]=new AdSize(GDTAds.BANNER.width,GDTAds.BANNER.height);
 		}
 		
 		public function get supportDevice():Boolean

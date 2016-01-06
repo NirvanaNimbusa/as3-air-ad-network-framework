@@ -127,6 +127,8 @@ package so.cuo.platform.ad.adapters
 			banners[AdSize.PAD_PORTRAIT]=new AdSize(Inmobi.TABLE_LANDSCAPE.height,Inmobi.TABLE_LANDSCAPE.width);
 			banners[AdSize.PAD_LANDSCAPE]=new AdSize(Inmobi.TABLE_LANDSCAPE.height,Inmobi.TABLE_LANDSCAPE.width);
 			banners[AdSize.IAB_MRECT]=new AdSize(Inmobi.IAB_MRECT.width,Inmobi.IAB_MRECT.height);
+			banners[AdSize.SMART_BANNER]=new AdSize(Inmobi.BANNER.width,Inmobi.BANNER.height);
+			banners[AdSize.BANNER_STANDARD]=new AdSize(Inmobi.BANNER.width,Inmobi.BANNER.height);
 		}
 		public function getBannerSize(type:int):AdSize{
 			if(type<banners.length&&type>=0){

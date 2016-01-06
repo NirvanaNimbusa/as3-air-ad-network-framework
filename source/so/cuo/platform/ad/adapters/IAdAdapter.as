@@ -65,7 +65,10 @@ package so.cuo.platform.ad.adapters
 		
 		public function getBannerSize(type:int):AdSize
 		{
-			return banners[type];
+			if(type<banners.length&&type>=0){
+				return banners[type];
+			}
+			return new AdSize(IAd.BANNER.width,IAd.BANNER.height);
 		}
 		
 		public function hideBanner():void

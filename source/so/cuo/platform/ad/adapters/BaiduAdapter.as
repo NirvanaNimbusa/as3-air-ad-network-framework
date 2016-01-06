@@ -50,6 +50,8 @@ package so.cuo.platform.ad.adapters
 			banners[AdSize.PAD_PORTRAIT]=new AdSize(BaiDu.IAB_LEADERBOARD.width,BaiDu.IAB_LEADERBOARD.height);
 			banners[AdSize.PAD_LANDSCAPE]=new AdSize(BaiDu.IAB_LEADERBOARD.width,BaiDu.IAB_LEADERBOARD.height);
 			banners[AdSize.IAB_MRECT]=new AdSize(BaiDu.IAB_MRECT.width,BaiDu.IAB_MRECT.height);
+			banners[AdSize.SMART_BANNER]=new AdSize(BaiDu.BANNER_STANDARD.width,BaiDu.BANNER_STANDARD.height);
+			banners[AdSize.BANNER_STANDARD]=new AdSize(BaiDu.BANNER_STANDARD.width,BaiDu.BANNER_STANDARD.height);
 		}
 		
 		public function get supportDevice():Boolean
