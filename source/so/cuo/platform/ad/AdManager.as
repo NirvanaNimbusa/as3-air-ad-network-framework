@@ -33,7 +33,7 @@ package so.cuo.platform.ad
 			return inst;
 		}
 
-		public function configPlatforms(config:Vector.<AdItem>, autoCache:Boolean=true):void
+		public function configPlatforms(config:Vector.<AdItem>, autoCache:Boolean=false):void
 		{
 			totalBannerRate=0;
 			totalInstialRate=0;
@@ -305,7 +305,7 @@ package so.cuo.platform.ad
 			morePagePlatforms.length=0;
 		}
 
-		private function onAdEvent(event:Event):void
+		private function onAdEvent(event:AdEvent):void
 		{
 			logTrace("AdManager.onAdEvent: platform:" + event.currentTarget + " event:" + event.type);
 			if (this.autuCache && event.type == AdEvent.onInterstitialDismiss || event.type == AdEvent.onInterstitialFailedReceive)
@@ -336,7 +336,9 @@ package so.cuo.platform.ad
 //			e.eventType=event.type;
 //			e.eventData=(event as Object).data;
 //			e.platform=event.currentTarget;
-			this.dispatchEvent(event);
+			var e:AdEvent=new AdEvent(event.type,(event as Object).data);
+			e.platform=event.currentTarget;
+			this.dispatchEvent(e);
 		}
 
 		private function logTrace(msg:String):void
