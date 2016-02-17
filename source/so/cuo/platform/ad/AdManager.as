@@ -332,11 +332,11 @@ package so.cuo.platform.ad
 			if(event.type==AdEvent.onBannerReceive){
 				bannerFailTry=0;
 			}
-			var e:AdMangerEvent=new AdMangerEvent(AdMangerEvent.onADEvent);
-			e.eventType=event.type;
-			e.eventData=(event as Object).data;
-			e.platform=event.currentTarget;
-			this.dispatchEvent(e);
+//			var e:AdMangerEvent=new AdMangerEvent(AdMangerEvent.onADEvent);
+//			e.eventType=event.type;
+//			e.eventData=(event as Object).data;
+//			e.platform=event.currentTarget;
+			this.dispatchEvent(event);
 		}
 
 		private function logTrace(msg:String):void

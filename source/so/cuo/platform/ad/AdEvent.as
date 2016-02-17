@@ -57,6 +57,7 @@ package  so.cuo.platform.ad
 		public static const onMoreAppReceive:String = "onMoreAppReceive";
 		
 		public var data:Object;
+		public var platform:Object;
 		public function AdEvent(type:String,data:*=null, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
