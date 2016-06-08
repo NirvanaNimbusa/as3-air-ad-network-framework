@@ -133,19 +133,19 @@ package so.cuo.platform.ad.adapters
 		}
 		protected function initBannerSize():void
 		{
-			banners[AdSize.PHONE_PORTRAIT]=new AdSize(Admob.BANNER.width,Admob.BANNER.height);
-			banners[AdSize.PHONE_LANDSCAPE]=new AdSize(Admob.FullBanner.width,Admob.FullBanner.height);
-			banners[AdSize.PAD_PORTRAIT]=new AdSize(Admob.IAB_LEADERBOARD.width,Admob.IAB_LEADERBOARD.height);
-			banners[AdSize.PAD_LANDSCAPE]=new AdSize(Admob.IAB_LEADERBOARD.width,Admob.IAB_LEADERBOARD.height);
-			banners[AdSize.IAB_MRECT]=new AdSize(Admob.MediumRectangle.width,Admob.MediumRectangle.height);
-			banners[AdSize.SMART_BANNER]=new AdSize(Admob.SMART_BANNER.width,Admob.SMART_BANNER.height);
-			banners[AdSize.BANNER_STANDARD]=new AdSize(Admob.BANNER_STANDARD.width,Admob.BANNER_STANDARD.height);
+			banners[AdSize.PHONE_PORTRAIT]=new AdSize(AdmobSize.BANNER_320x50.width,AdmobSize.BANNER_320x50.height);
+			banners[AdSize.PHONE_LANDSCAPE]=new AdSize(AdmobSize.BANNER_468X60.width,AdmobSize.BANNER_468X60.height);
+			banners[AdSize.PAD_PORTRAIT]=new AdSize(AdmobSize.BANNER_728X90.width,AdmobSize.BANNER_728X90.height);
+			banners[AdSize.PAD_LANDSCAPE]=new AdSize(AdmobSize.BANNER_728X90.width,AdmobSize.BANNER_728X90.height);
+			banners[AdSize.IAB_MRECT]=new AdSize(AdmobSize.BANNER_300X250.width,AdmobSize.BANNER_300X250.height);
+			banners[AdSize.SMART_BANNER]=new AdSize(AdmobSize.SMART_BANNER.width,AdmobSize.SMART_BANNER.height);
+			banners[AdSize.BANNER_STANDARD]=new AdSize(AdmobSize.BANNER_STANDARD.width,AdmobSize.BANNER_STANDARD.height);
 		}
 		public function getBannerSize(type:int):AdSize{
 			if(type<banners.length&&type>=0){
 				return banners[type];
 			}
-			return new AdSize(Admob.BANNER.width,Admob.BANNER.height);
+			return new AdSize(AdmobSize.BANNER_320x50.width,AdmobSize.BANNER_320x50.height);
 		}
 		public function onAdHandler(e:Event):void
 		{
