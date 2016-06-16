@@ -3,11 +3,13 @@ package so.cuo.platform.ad.adapters
 	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.system.Capabilities;
 	
 	import so.cuo.platform.ad.AdEvent;
 	import so.cuo.platform.ad.AdSize;
 	import so.cuo.platform.ad.IBanner;
 	import so.cuo.platform.ad.IInterstitial;
+	import so.cuo.platform.ad.IMorePage;
 	import so.cuo.platform.gdt.GDTAds;
 	import so.cuo.platform.gdt.GDTEvent;
 	import so.cuo.platform.gdt.GDTSize;
@@ -22,17 +24,17 @@ package so.cuo.platform.ad.adapters
 	[Event(name="onInterstitialLeaveApplication", type="so.cuo.platform.ad.AdEvent")]
 	[Event(name="onInterstitialPresent", type="so.cuo.platform.ad.AdEvent")]
 	[Event(name="onInterstitialReceive", type="so.cuo.platform.ad.AdEvent")]
-	public class GDTAdapter extends EventDispatcher implements  IBanner, IInterstitial
+	public class GDTAdapter extends EventDispatcher implements  IBanner, IInterstitial,IMorePage
 	{
 		protected static const banners:Vector.<AdSize>=new Vector.<AdSize>();
 		private var appWallKey:String;
 		protected function get plat():GDTAds{
 			return GDTAds.getInstance();
 		}
-		public function GDTAdapter(appid:String,bannerID:String,institialID:String,appWall:String)
+		public function GDTAdapter(appid:String,bannerID:String,institialID:String,appWall:String,splashID:String="")
 		{
 			appWallKey=appWall;
-			plat.setKeys(appid,bannerID,institialID);
+			plat.setKeys(appid,bannerID,institialID,splashID);
 			plat.addEventListener(GDTEvent.onBannerDismiss,onAdHandler);
 			plat.addEventListener(GDTEvent.onBannerFailedReceive,onAdHandler);
 			plat.addEventListener(GDTEvent.onBannerLeaveApplication,onAdHandler);
@@ -137,7 +139,29 @@ package so.cuo.platform.ad.adapters
 
 		public function get supportedBanner():Boolean
 		{
+			return GDTAds.getInstance().supportDevice;
+		}
+		
+		public function cacheMoreApp():void
+		{
+		}
+		
+		public function isMoreAppReady():Boolean
+		{
 			return true;
 		}
+		
+		public function showMoreApp():void
+		{
+			GDTAds.getInstance().showMoreApp(appWallKey);
+			
+		}
+		
+		public function get supportedMoreApp():Boolean
+		{
+			if(Capabilities.manufacturer.indexOf('Android') > -1)return true;
+			return false;
+		}
+		
 	}
 }

@@ -27,9 +27,9 @@ package so.cuo.platform.ad.adapters
 		protected function get plat():BaiDu{
 			return BaiDu.getInstance();
 		}
-		public function BaiduAdapter(appid:String,bannerID:String,institialID:String,videoID:String)
+		public function BaiduAdapter(appid:String,bannerID:String,institialID:String,videoID:String,splashID:String="")
 		{
-			plat.setKeys(appid,bannerID,institialID,videoID);
+			plat.setKeys(appid,bannerID,institialID,videoID,splashID);
 			plat.addEventListener(BaiDuAdEvent.onBannerDismiss,onAdHandler);
 			plat.addEventListener(BaiDuAdEvent.onBannerFailedReceive,onAdHandler);
 			plat.addEventListener(BaiDuAdEvent.onBannerLeaveApplication,onAdHandler);

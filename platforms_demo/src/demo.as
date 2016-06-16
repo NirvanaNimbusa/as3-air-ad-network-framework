@@ -25,11 +25,11 @@ package
 			
 			
 			var list:Vector.<AdItem>=new Vector.<AdItem>();// 
-			list.push(new AdItem(new BaiduAdapter("appid","banner id","insti id","video id"), 10,5));
+			list.push(new AdItem(new BaiduAdapter("appid","banner id","insti id","video id","splash id"), 10,5));
 			list.push(new AdItem(new AdmobAdapter("banner id","inst id"), 10,5));
 			list.push(new AdItem(new InmobiAdapter("app id"), 10));
 			list.push(new AdItem(new ChartboostAdapter("app id","app sign"), 10));
-			list.push(new AdItem(new GDTAdapter("app id","banner id","insti id","more app id"), 10));
+			list.push(new AdItem(new GDTAdapter("app id","banner id","insti id","more app id","splash id"), 10));
 			list.push(new AdItem(new IAdAdapter(),10));
 			AdManager.getInstance().configPlatforms(list);
 			
