@@ -43,6 +43,9 @@ AdManager.getInstance () showBanner (AdSize.PHONE_PORTRAIT,AdPosition.BOTTOM_CEN
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
+
+Supported ane updated,update !!!
+
 ##Supported Platforms 
 ###admob
 - Download : https://github.com/lilili87222/admob-for-flash<br/>
